@@ -1,0 +1,1 @@
+ /Users/santuc/Documents/Project/flutter_module/.dart_tool/flutter_build/0910b7f049560776ba2cacfe113cb8aa/native_assets.yaml: 

@@ -1,0 +1,45 @@
+def flutterPluginVersion = "managed"
+
+apply plugin: "com.android.application"
+
+android {
+    compileSdk 34
+    namespace 'com.example.flutter_module.host'
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.example.flutter_module.host"
+        minSdk = 25
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+        missingDimensionStrategy("dxa-platform", "flutter")
+        missingDimensionStrategy("dxa-environment", "prod")
+    }
+
+    buildTypes {
+        profile {
+            initWith debug
+        }
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+}
+buildDir = new File(rootProject.projectDir, "../build/host")
+dependencies {
+    implementation(project(":flutter"))
+    implementation(fileTree(dir: "libs", include: ["*.jar"]))
+    implementation("androidx.appcompat:appcompat:1.0.2")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+}

@@ -1,0 +1,39 @@
+// Generated file. Do not edit.
+
+buildscript {
+    ext.kotlin_version = "1.9.10"
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.3.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+
+android {
+    namespace = "com.example.flutter_module"
+    compileSdk = 34
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 35
+        missingDimensionStrategy("dxa-platform", "flutter")
+        missingDimensionStrategy("dxa-environment", "prod")
+    }
+}
+
+dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
+}
